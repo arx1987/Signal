@@ -158,13 +158,10 @@ namespace SIgnal {
       switch (comboVal) {
         case "с":
           return tBV;
-          break;
         case "м":
           return tBV * 60;
-          break;
         case "ч":
           return tBV * 3600;
-          break;
         default:
           return 0;
       }
