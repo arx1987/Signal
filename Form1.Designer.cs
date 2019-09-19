@@ -61,10 +61,19 @@
       this.button5 = new System.Windows.Forms.Button();
       this.label7 = new System.Windows.Forms.Label();
       this.timer5 = new System.Windows.Forms.Timer(this.components);
+      this.groupBox5 = new System.Windows.Forms.GroupBox();
+      this.comboBox2 = new System.Windows.Forms.ComboBox();
+      this.textBox12 = new System.Windows.Forms.TextBox();
+      this.textBox11 = new System.Windows.Forms.TextBox();
+      this.button8 = new System.Windows.Forms.Button();
+      this.button7 = new System.Windows.Forms.Button();
+      this.label8 = new System.Windows.Forms.Label();
+      this.timer6 = new System.Windows.Forms.Timer(this.components);
       this.groupBox1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.groupBox3.SuspendLayout();
       this.groupBox4.SuspendLayout();
+      this.groupBox5.SuspendLayout();
       this.SuspendLayout();
       // 
       // textBox1
@@ -340,22 +349,6 @@
       this.groupBox4.TabIndex = 10;
       this.groupBox4.TabStop = false;
       // 
-      // textBox10
-      // 
-      this.textBox10.Location = new System.Drawing.Point(98, 31);
-      this.textBox10.Name = "textBox10";
-      this.textBox10.Size = new System.Drawing.Size(112, 20);
-      this.textBox10.TabIndex = 9;
-      // 
-      // textBox9
-      // 
-      this.textBox9.Location = new System.Drawing.Point(7, 31);
-      this.textBox9.Name = "textBox9";
-      this.textBox9.Size = new System.Drawing.Size(39, 20);
-      this.textBox9.TabIndex = 7;
-      this.textBox9.Text = "0";
-      this.textBox9.TextChanged += new System.EventHandler(this.TextBox9_TextChanged);
-      // 
       // comboBox1
       // 
       this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
@@ -375,7 +368,22 @@
       this.comboBox1.Size = new System.Drawing.Size(39, 21);
       this.comboBox1.TabIndex = 10;
       this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
-      this.comboBox1.SelectedIndex = 0;
+      // 
+      // textBox10
+      // 
+      this.textBox10.Location = new System.Drawing.Point(98, 31);
+      this.textBox10.Name = "textBox10";
+      this.textBox10.Size = new System.Drawing.Size(112, 20);
+      this.textBox10.TabIndex = 9;
+      // 
+      // textBox9
+      // 
+      this.textBox9.Location = new System.Drawing.Point(7, 31);
+      this.textBox9.Name = "textBox9";
+      this.textBox9.Size = new System.Drawing.Size(39, 20);
+      this.textBox9.TabIndex = 7;
+      this.textBox9.Text = "0";
+      this.textBox9.TextChanged += new System.EventHandler(this.TextBox9_TextChanged);
       // 
       // button6
       // 
@@ -412,11 +420,96 @@
       this.timer5.Interval = 1000;
       this.timer5.Tick += new System.EventHandler(this.Timer5_Tick);
       // 
+      // groupBox5
+      // 
+      this.groupBox5.Controls.Add(this.comboBox2);
+      this.groupBox5.Controls.Add(this.textBox12);
+      this.groupBox5.Controls.Add(this.textBox11);
+      this.groupBox5.Controls.Add(this.button8);
+      this.groupBox5.Controls.Add(this.button7);
+      this.groupBox5.Controls.Add(this.label8);
+      this.groupBox5.Location = new System.Drawing.Point(-1, 362);
+      this.groupBox5.Name = "groupBox5";
+      this.groupBox5.Size = new System.Drawing.Size(217, 57);
+      this.groupBox5.TabIndex = 11;
+      this.groupBox5.TabStop = false;
+      // 
+      // comboBox2
+      // 
+      this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "с",
+            "м",
+            "ч"});
+      this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+      this.comboBox2.Cursor = System.Windows.Forms.Cursors.Default;
+      this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.comboBox2.FormattingEnabled = true;
+      this.comboBox2.Items.AddRange(new object[] {
+            "с",
+            "м",
+            "ч"});
+      this.comboBox2.Location = new System.Drawing.Point(53, 31);
+      this.comboBox2.Name = "comboBox2";
+      this.comboBox2.Size = new System.Drawing.Size(39, 21);
+      this.comboBox2.TabIndex = 10;
+      // 
+      // textBox12
+      // 
+      this.textBox12.Location = new System.Drawing.Point(98, 31);
+      this.textBox12.Name = "textBox12";
+      this.textBox12.Size = new System.Drawing.Size(112, 20);
+      this.textBox12.TabIndex = 9;
+      // 
+      // textBox11
+      // 
+      this.textBox11.Location = new System.Drawing.Point(7, 31);
+      this.textBox11.Name = "textBox11";
+      this.textBox11.Size = new System.Drawing.Size(39, 20);
+      this.textBox11.TabIndex = 7;
+      this.textBox11.Text = "0";
+      this.textBox11.TextChanged += new System.EventHandler(this.TextBox11_TextChanged);
+      // 
+      // button8
+      // 
+      this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.button8.Location = new System.Drawing.Point(174, 5);
+      this.button8.Name = "button8";
+      this.button8.Size = new System.Drawing.Size(37, 26);
+      this.button8.TabIndex = 6;
+      this.button8.Text = ";)";
+      this.button8.UseVisualStyleBackColor = false;
+      this.button8.Click += new System.EventHandler(this.Button8_Click);
+      // 
+      // button7
+      // 
+      this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.button7.Location = new System.Drawing.Point(98, 5);
+      this.button7.Name = "button7";
+      this.button7.Size = new System.Drawing.Size(70, 26);
+      this.button7.TabIndex = 5;
+      this.button7.Text = "Старт";
+      this.button7.UseVisualStyleBackColor = false;
+      this.button7.Click += new System.EventHandler(this.Button7_Click);
+      // 
+      // label8
+      // 
+      this.label8.AutoSize = true;
+      this.label8.Location = new System.Drawing.Point(7, 11);
+      this.label8.Name = "label8";
+      this.label8.Size = new System.Drawing.Size(0, 13);
+      this.label8.TabIndex = 0;
+      // 
+      // timer6
+      // 
+      this.timer6.Interval = 1000;
+      this.timer6.Tick += new System.EventHandler(this.Timer6_Tick);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(224, 409);
+      this.ClientSize = new System.Drawing.Size(224, 523);
+      this.Controls.Add(this.groupBox5);
       this.Controls.Add(this.groupBox4);
       this.Controls.Add(this.groupBox3);
       this.Controls.Add(this.groupBox2);
@@ -439,6 +532,8 @@
       this.groupBox3.PerformLayout();
       this.groupBox4.ResumeLayout(false);
       this.groupBox4.PerformLayout();
+      this.groupBox5.ResumeLayout(false);
+      this.groupBox5.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -483,6 +578,14 @@
     private System.Windows.Forms.TextBox textBox10;
     private System.Windows.Forms.TextBox textBox9;
     private System.Windows.Forms.ComboBox comboBox1;
+    private System.Windows.Forms.GroupBox groupBox5;
+    private System.Windows.Forms.ComboBox comboBox2;
+    private System.Windows.Forms.TextBox textBox12;
+    private System.Windows.Forms.TextBox textBox11;
+    private System.Windows.Forms.Button button8;
+    private System.Windows.Forms.Button button7;
+    private System.Windows.Forms.Label label8;
+    private System.Windows.Forms.Timer timer6;
   }
 }
 

@@ -20,6 +20,8 @@ namespace SIgnal {
       //-когда прозвучал сигнал, надпись под этим таймером должна подсвечиваться пока по ней не кликнешь
       //+установить другой сигнал
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      comboBox1.SelectedIndex = 0;
+      comboBox2.SelectedIndex = 0;
       AutoCompleteStringCollection source = new AutoCompleteStringCollection()//добавляем функцию автокомплита для поля textBox1
         {
             "5",
@@ -33,7 +35,7 @@ namespace SIgnal {
       textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
     }
     int timeLeft1, timeLeft2, timeLeft3, timeLeft4; //переменная, хранит значнеие оставшегося до сигнала времени
-    int timeSec5 = 0; //переменная, которая хранит значение секундомера
+    int timeSec5 = 0, timeSec6 = 0; //переменная, которая хранит значение секундомера
     int buttonState1 = 0; /*переменная, которая содержит состояние кнопки. Если кнопка нажата впервые, то состояние 1, 
       если кнопка нажата 2-ой раз до сигнала, то состояние 2(и счетчик временно останавливается), если кнопка нажата 
       3-ий раз до сигнала, то состояние 3 и счетчик продолжает работать*/
@@ -85,10 +87,27 @@ namespace SIgnal {
       label7.Text = 0 + " ч " + 0 + " м " + 0 + " с";
     }
 
+    private void Button7_Click(object sender, EventArgs e) {//Старт/Пауза секундомера
+      if (button7.Text == "Старт") {
+        timer6.Start();
+        button7.Text = "Пауза";
+      }
+      else if (button5.Text == "Пауза") {
+        timer6.Stop();
+        button7.Text = "Старт";
+      }
+    }
+
+    private void Button8_Click(object sender, EventArgs e) {//Сброс секундомера 
+      timeSec6 = 0;
+      label8.Text = 0 + " ч " + 0 + " м " + 0 + " с";
+    }
+
     private void TextBox9_TextChanged(object sender, EventArgs e) {
       int numberSec9;
       bool isIntSec = Int32.TryParse(textBox9.Text, out numberSec9);
       if (isIntSec) {
+        textBox9.BackColor = Color.White;
         reminderTime5 = reminderSecMinHour(numberSec9, comboBox1.SelectedItem.ToString());
       }
       else {
@@ -96,42 +115,44 @@ namespace SIgnal {
       }
     }
 
-    //private void TextBox11_TextChanged(object sender, EventArgs e) {
-    //  int numberSec11;
-    //  bool isIntSec = Int32.TryParse(textBox11.Text, out numberSec11);
-    //  if (isIntSec) {
-    //    reminderTime5 = reminderSecMinHour(numberSec11, comboBox2.SelectedItem.ToString());
-    //  }
-    //  else {
-    //    textBox9.BackColor = Color.Red;
-    //  }
-    //}
-
-    /*метод, который будет устанавливать значения reminderTime5 или reminderTime6, 
-     * аргументами будет принимать строки sec1 or sec2*/
-    private void reminderTime(string stopWatch) {
-      int numberSec;
-      bool isIntSec;
-      string cmbBxVal;
-      if (stopWatch == "sec1") {
-        isIntSec = Int32.TryParse(textBox9.Text, out numberSec);
-        if (isIntSec) {
-          cmbBxVal = comboBox1.SelectedItem.ToString();
-          reminderTime5 = reminderSecMinHour(numberSec, cmbBxVal);
-        } else {
-          textBox9.BackColor = Color.Red;
-        }
-      } else if(stopWatch == "sec2") {
-        //isIntSec = Int32.TryParse(textBox11.Text, out numberSec);
-        //if (isIntSec) {
-        //  cmbBxVal = comboBox2.SelectedItem.ToString();
-        //  reminderTime6 = reminderSecMinHour(numberSec, cmbBxVal);
-        //}
-        //else {
-        //  textBox11.BackColor = Color.Red;
-        //}
+    //textBox11, 12; buttons 7 8
+    private void TextBox11_TextChanged(object sender, EventArgs e) {
+      int numberSec11;
+      bool isIntSec = Int32.TryParse(textBox11.Text, out numberSec11);
+      if (isIntSec) {
+        textBox9.BackColor = Color.White;
+        reminderTime6 = reminderSecMinHour(numberSec11, comboBox2.SelectedItem.ToString());
+      }
+      else {
+        textBox11.BackColor = Color.Red;
       }
     }
+
+    ///*метод, который будет устанавливать значения reminderTime5 или reminderTime6, 
+    // * аргументами будет принимать строки sec1 or sec2*/
+    //private void reminderTime(string stopWatch) {
+    //  int numberSec;
+    //  bool isIntSec;
+    //  string cmbBxVal;
+    //  if (stopWatch == "sec1") {
+    //    isIntSec = Int32.TryParse(textBox9.Text, out numberSec);
+    //    if (isIntSec) {
+    //      cmbBxVal = comboBox1.SelectedItem.ToString();
+    //      reminderTime5 = reminderSecMinHour(numberSec, cmbBxVal);
+    //    } else {
+    //      textBox9.BackColor = Color.Red;
+    //    }
+    //  } else if(stopWatch == "sec2") {
+    //    //isIntSec = Int32.TryParse(textBox11.Text, out numberSec);
+    //    //if (isIntSec) {
+    //    //  cmbBxVal = comboBox2.SelectedItem.ToString();
+    //    //  reminderTime6 = reminderSecMinHour(numberSec, cmbBxVal);
+    //    //}
+    //    //else {
+    //    //  textBox11.BackColor = Color.Red;
+    //    //}
+    //  }
+    //}
 
     private int reminderSecMinHour(int tBV, string comboVal) {//подсчет количества секунд, которое нужно будет сравинить с секундомером
       switch (comboVal) {
@@ -344,7 +365,6 @@ namespace SIgnal {
       }
     }
 
-    //просто коммент для гита
     private void Timer3_Tick(object sender, EventArgs e) {
       string label3 = "";
       Timer_Tick(sender, e, 3, ref timeLeft3, ref label3);
@@ -420,7 +440,7 @@ namespace SIgnal {
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~СЕКУНДОМЕРЫ + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void Timer5_Tick(object sender, EventArgs e) {
-      if(timeSec5 == reminderTime5) {
+      if(timeSec5 == reminderTime5 && reminderTime5 != 0) {
         Console.Beep(500, 700);//звуковой сигнал  было Console.Beep(5000, 1000);
         Thread.Sleep(300);
         Console.Beep(500, 700);
@@ -434,6 +454,20 @@ namespace SIgnal {
       label7.Text = hoursLeft + " ч " + minutesLeft + " м " + secondsLeft + " с";
     }
 
+    private void Timer6_Tick(object sender, EventArgs e) {
+      if (timeSec6 == reminderTime6 && reminderTime6 != 0) {
+        Console.Beep(500, 700);//звуковой сигнал  было Console.Beep(5000, 1000);
+        Thread.Sleep(300);
+        Console.Beep(500, 700);
+        Thread.Sleep(300);
+        Console.Beep(500, 700);
+      }
+      timeSec6++;
+      int hoursLeft = timeSec6 / 3600;
+      int minutesLeft = (timeSec6 - hoursLeft * 3600) / 60;
+      int secondsLeft = timeSec6 - minutesLeft * 60 - hoursLeft * 3600;
+      label8.Text = hoursLeft + " ч " + minutesLeft + " м " + secondsLeft + " с";
+    }
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~СЕКУНДОМЕРЫ - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     private void TextBox1_TextChanged(object sender, EventArgs e) {
