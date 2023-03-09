@@ -24,6 +24,7 @@
     /// </summary>
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.button1 = new System.Windows.Forms.Button();
@@ -69,11 +70,41 @@
       this.button7 = new System.Windows.Forms.Button();
       this.label8 = new System.Windows.Forms.Label();
       this.timer6 = new System.Windows.Forms.Timer(this.components);
+      this.groupBox6 = new System.Windows.Forms.GroupBox();
+      this.button10 = new System.Windows.Forms.Button();
+      this.label9 = new System.Windows.Forms.Label();
+      this.textBox13 = new System.Windows.Forms.TextBox();
+      this.button9 = new System.Windows.Forms.Button();
+      this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.soundTimer = new System.Windows.Forms.Timer(this.components);
+      this.groupBox7 = new System.Windows.Forms.GroupBox();
+      this.label10 = new System.Windows.Forms.Label();
+      this.button11 = new System.Windows.Forms.Button();
+      this.textBox14 = new System.Windows.Forms.TextBox();
+      this.checkBox5 = new System.Windows.Forms.CheckBox();
+      this.textBox15 = new System.Windows.Forms.TextBox();
+      this.timer7 = new System.Windows.Forms.Timer(this.components);
+      this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
+      this.groupBox8 = new System.Windows.Forms.GroupBox();
+      this.label14 = new System.Windows.Forms.Label();
+      this.button12 = new System.Windows.Forms.Button();
+      this.textBox19 = new System.Windows.Forms.TextBox();
+      this.label13 = new System.Windows.Forms.Label();
+      this.label12 = new System.Windows.Forms.Label();
+      this.label11 = new System.Windows.Forms.Label();
+      this.textBox18 = new System.Windows.Forms.TextBox();
+      this.textBox17 = new System.Windows.Forms.TextBox();
+      this.textBox16 = new System.Windows.Forms.TextBox();
+      this.timer8 = new System.Windows.Forms.Timer(this.components);
       this.groupBox1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.groupBox3.SuspendLayout();
       this.groupBox4.SuspendLayout();
       this.groupBox5.SuspendLayout();
+      this.groupBox6.SuspendLayout();
+      this.groupBox7.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
+      this.groupBox8.SuspendLayout();
       this.SuspendLayout();
       // 
       // textBox1
@@ -124,9 +155,8 @@
       this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
       this.checkBox1.Location = new System.Drawing.Point(82, 31);
       this.checkBox1.Name = "checkBox1";
-      this.checkBox1.Size = new System.Drawing.Size(85, 17);
+      this.checkBox1.Size = new System.Drawing.Size(15, 14);
       this.checkBox1.TabIndex = 4;
-      this.checkBox1.Text = "зациклить?";
       this.checkBox1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
       this.checkBox1.UseVisualStyleBackColor = true;
       // 
@@ -428,7 +458,7 @@
       this.groupBox5.Controls.Add(this.button8);
       this.groupBox5.Controls.Add(this.button7);
       this.groupBox5.Controls.Add(this.label8);
-      this.groupBox5.Location = new System.Drawing.Point(-1, 362);
+      this.groupBox5.Location = new System.Drawing.Point(-1, 367);
       this.groupBox5.Name = "groupBox5";
       this.groupBox5.Size = new System.Drawing.Size(217, 57);
       this.groupBox5.TabIndex = 11;
@@ -504,11 +534,243 @@
       this.timer6.Interval = 1000;
       this.timer6.Tick += new System.EventHandler(this.Timer6_Tick);
       // 
+      // groupBox6
+      // 
+      this.groupBox6.Controls.Add(this.button10);
+      this.groupBox6.Controls.Add(this.label9);
+      this.groupBox6.Controls.Add(this.textBox13);
+      this.groupBox6.Location = new System.Drawing.Point(4, 557);
+      this.groupBox6.Name = "groupBox6";
+      this.groupBox6.Size = new System.Drawing.Size(209, 92);
+      this.groupBox6.TabIndex = 13;
+      this.groupBox6.TabStop = false;
+      this.groupBox6.Text = "Настройки музыки";
+      // 
+      // button10
+      // 
+      this.button10.Location = new System.Drawing.Point(6, 45);
+      this.button10.Name = "button10";
+      this.button10.Size = new System.Drawing.Size(197, 23);
+      this.button10.TabIndex = 2;
+      this.button10.Text = "Выбрать мелодию";
+      this.button10.UseVisualStyleBackColor = true;
+      this.button10.Click += new System.EventHandler(this.Button10_Click);
+      // 
+      // label9
+      // 
+      this.label9.AutoSize = true;
+      this.label9.Location = new System.Drawing.Point(47, 21);
+      this.label9.Name = "label9";
+      this.label9.Size = new System.Drawing.Size(160, 13);
+      this.label9.TabIndex = 1;
+      this.label9.Text = "Время проигрывания сигнала";
+      // 
+      // textBox13
+      // 
+      this.textBox13.Location = new System.Drawing.Point(0, 18);
+      this.textBox13.Name = "textBox13";
+      this.textBox13.Size = new System.Drawing.Size(41, 20);
+      this.textBox13.TabIndex = 0;
+      this.textBox13.TextChanged += new System.EventHandler(this.TextBox13_TextChanged);
+      this.textBox13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox13_KeyPress);
+      // 
+      // button9
+      // 
+      this.button9.BackgroundImage = global::SIgnal.Properties.Resources.Off;
+      this.button9.Location = new System.Drawing.Point(184, 12);
+      this.button9.Name = "button9";
+      this.button9.Size = new System.Drawing.Size(25, 25);
+      this.button9.TabIndex = 14;
+      this.button9.UseVisualStyleBackColor = true;
+      this.button9.Click += new System.EventHandler(this.Button9_Click);
+      // 
+      // openFileDialog1
+      // 
+      this.openFileDialog1.FileName = "openFileDialog1";
+      // 
+      // soundTimer
+      // 
+      this.soundTimer.Interval = 1000;
+      this.soundTimer.Tick += new System.EventHandler(this.SoundTimer_Tick);
+      // 
+      // groupBox7
+      // 
+      this.groupBox7.Controls.Add(this.label10);
+      this.groupBox7.Controls.Add(this.button11);
+      this.groupBox7.Controls.Add(this.textBox14);
+      this.groupBox7.Controls.Add(this.checkBox5);
+      this.groupBox7.Controls.Add(this.textBox15);
+      this.groupBox7.Location = new System.Drawing.Point(-1, 430);
+      this.groupBox7.Name = "groupBox7";
+      this.groupBox7.Size = new System.Drawing.Size(217, 54);
+      this.groupBox7.TabIndex = 10;
+      this.groupBox7.TabStop = false;
+      // 
+      // label10
+      // 
+      this.label10.AutoSize = true;
+      this.label10.Location = new System.Drawing.Point(7, 32);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(0, 13);
+      this.label10.TabIndex = 4;
+      // 
+      // button11
+      // 
+      this.button11.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.button11.Location = new System.Drawing.Point(98, 28);
+      this.button11.Name = "button11";
+      this.button11.Size = new System.Drawing.Size(113, 26);
+      this.button11.TabIndex = 3;
+      this.button11.Text = "Cтарт";
+      this.button11.UseVisualStyleBackColor = false;
+      this.button11.Click += new System.EventHandler(this.button11_Click);
+      // 
+      // textBox14
+      // 
+      this.textBox14.Location = new System.Drawing.Point(98, 9);
+      this.textBox14.Name = "textBox14";
+      this.textBox14.Size = new System.Drawing.Size(113, 20);
+      this.textBox14.TabIndex = 2;
+      this.textBox14.Click += new System.EventHandler(this.textBox14_Click);
+      // 
+      // checkBox5
+      // 
+      this.checkBox5.AutoSize = true;
+      this.checkBox5.Location = new System.Drawing.Point(77, 12);
+      this.checkBox5.Name = "checkBox5";
+      this.checkBox5.Size = new System.Drawing.Size(15, 14);
+      this.checkBox5.TabIndex = 1;
+      this.checkBox5.UseVisualStyleBackColor = true;
+      // 
+      // textBox15
+      // 
+      this.textBox15.Location = new System.Drawing.Point(7, 9);
+      this.textBox15.Name = "textBox15";
+      this.textBox15.Size = new System.Drawing.Size(64, 20);
+      this.textBox15.TabIndex = 0;
+      this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
+      // 
+      // timer7
+      // 
+      this.timer7.Interval = 1000;
+      this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
+      // 
+      // WMP
+      // 
+      this.WMP.Enabled = true;
+      this.WMP.Location = new System.Drawing.Point(4, 655);
+      this.WMP.Name = "WMP";
+      this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
+      this.WMP.Size = new System.Drawing.Size(210, 45);
+      this.WMP.TabIndex = 12;
+      // 
+      // groupBox8
+      // 
+      this.groupBox8.Controls.Add(this.label14);
+      this.groupBox8.Controls.Add(this.button12);
+      this.groupBox8.Controls.Add(this.textBox19);
+      this.groupBox8.Controls.Add(this.label13);
+      this.groupBox8.Controls.Add(this.label12);
+      this.groupBox8.Controls.Add(this.label11);
+      this.groupBox8.Controls.Add(this.textBox18);
+      this.groupBox8.Controls.Add(this.textBox17);
+      this.groupBox8.Controls.Add(this.textBox16);
+      this.groupBox8.Location = new System.Drawing.Point(4, 491);
+      this.groupBox8.Name = "groupBox8";
+      this.groupBox8.Size = new System.Drawing.Size(200, 69);
+      this.groupBox8.TabIndex = 15;
+      this.groupBox8.TabStop = false;
+      // 
+      // label14
+      // 
+      this.label14.AutoSize = true;
+      this.label14.Location = new System.Drawing.Point(-1, 50);
+      this.label14.Name = "label14";
+      this.label14.Size = new System.Drawing.Size(0, 13);
+      this.label14.TabIndex = 8;
+      // 
+      // button12
+      // 
+      this.button12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.button12.Location = new System.Drawing.Point(93, 34);
+      this.button12.Name = "button12";
+      this.button12.Size = new System.Drawing.Size(107, 26);
+      this.button12.TabIndex = 7;
+      this.button12.Text = "Старт";
+      this.button12.UseVisualStyleBackColor = false;
+      this.button12.Click += new System.EventHandler(this.button12_Click);
+      // 
+      // textBox19
+      // 
+      this.textBox19.Location = new System.Drawing.Point(93, 9);
+      this.textBox19.Name = "textBox19";
+      this.textBox19.Size = new System.Drawing.Size(106, 20);
+      this.textBox19.TabIndex = 6;
+      // 
+      // label13
+      // 
+      this.label13.AutoSize = true;
+      this.label13.Location = new System.Drawing.Point(61, 35);
+      this.label13.Name = "label13";
+      this.label13.Size = new System.Drawing.Size(12, 13);
+      this.label13.TabIndex = 5;
+      this.label13.Text = "s";
+      // 
+      // label12
+      // 
+      this.label12.AutoSize = true;
+      this.label12.Location = new System.Drawing.Point(32, 35);
+      this.label12.Name = "label12";
+      this.label12.Size = new System.Drawing.Size(15, 13);
+      this.label12.TabIndex = 4;
+      this.label12.Text = "m";
+      // 
+      // label11
+      // 
+      this.label11.AutoSize = true;
+      this.label11.Location = new System.Drawing.Point(7, 35);
+      this.label11.Name = "label11";
+      this.label11.Size = new System.Drawing.Size(13, 13);
+      this.label11.TabIndex = 3;
+      this.label11.Text = "h";
+      // 
+      // textBox18
+      // 
+      this.textBox18.Location = new System.Drawing.Point(56, 9);
+      this.textBox18.Name = "textBox18";
+      this.textBox18.Size = new System.Drawing.Size(22, 20);
+      this.textBox18.TabIndex = 2;
+      this.textBox18.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox18_KeyPress);
+      // 
+      // textBox17
+      // 
+      this.textBox17.Location = new System.Drawing.Point(28, 9);
+      this.textBox17.Name = "textBox17";
+      this.textBox17.Size = new System.Drawing.Size(22, 20);
+      this.textBox17.TabIndex = 1;
+      this.textBox17.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_KeyPress);
+      // 
+      // textBox16
+      // 
+      this.textBox16.Location = new System.Drawing.Point(2, 9);
+      this.textBox16.Name = "textBox16";
+      this.textBox16.Size = new System.Drawing.Size(22, 20);
+      this.textBox16.TabIndex = 0;
+      this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox16_KeyPress);
+      // 
+      // timer8
+      // 
+      this.timer8.Tick += new System.EventHandler(this.timer8_Tick);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(224, 428);
+      this.ClientSize = new System.Drawing.Size(221, 183);
+      this.Controls.Add(this.groupBox8);
+      this.Controls.Add(this.groupBox7);
+      this.Controls.Add(this.button9);
+      this.Controls.Add(this.WMP);
       this.Controls.Add(this.groupBox5);
       this.Controls.Add(this.groupBox4);
       this.Controls.Add(this.groupBox3);
@@ -521,8 +783,9 @@
       this.Controls.Add(this.button1);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.textBox1);
+      this.Controls.Add(this.groupBox6);
       this.Name = "Form1";
-      this.Text = "Form1";
+      this.Text = "Signal";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
@@ -534,6 +797,13 @@
       this.groupBox4.PerformLayout();
       this.groupBox5.ResumeLayout(false);
       this.groupBox5.PerformLayout();
+      this.groupBox6.ResumeLayout(false);
+      this.groupBox6.PerformLayout();
+      this.groupBox7.ResumeLayout(false);
+      this.groupBox7.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
+      this.groupBox8.ResumeLayout(false);
+      this.groupBox8.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -586,6 +856,32 @@
     private System.Windows.Forms.Button button7;
     private System.Windows.Forms.Label label8;
     private System.Windows.Forms.Timer timer6;
+    private AxWMPLib.AxWindowsMediaPlayer WMP;
+    private System.Windows.Forms.GroupBox groupBox6;
+    private System.Windows.Forms.TextBox textBox13;
+    private System.Windows.Forms.Label label9;
+    private System.Windows.Forms.Button button9;
+    private System.Windows.Forms.Button button10;
+    private System.Windows.Forms.OpenFileDialog openFileDialog1;
+    private System.Windows.Forms.Timer soundTimer;
+    private System.Windows.Forms.GroupBox groupBox7;
+    private System.Windows.Forms.Label label10;
+    private System.Windows.Forms.Button button11;
+    private System.Windows.Forms.TextBox textBox14;
+    private System.Windows.Forms.CheckBox checkBox5;
+    private System.Windows.Forms.TextBox textBox15;
+    private System.Windows.Forms.Timer timer7;
+    private System.Windows.Forms.GroupBox groupBox8;
+    private System.Windows.Forms.Button button12;
+    private System.Windows.Forms.TextBox textBox19;
+    private System.Windows.Forms.Label label13;
+    private System.Windows.Forms.Label label12;
+    private System.Windows.Forms.Label label11;
+    private System.Windows.Forms.TextBox textBox18;
+    private System.Windows.Forms.TextBox textBox17;
+    private System.Windows.Forms.TextBox textBox16;
+    private System.Windows.Forms.Timer timer8;
+    private System.Windows.Forms.Label label14;
   }
 }
 
